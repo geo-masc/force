@@ -1,13 +1,13 @@
-.. _tut-tsi:
+.. _tut-cls:
 
 Classification
 =========================
 
 .. |copy|   unicode:: U+000A9 .. COPYRIGHT SIGN
 
-**Using FORCE for land cover/use classification**
+*Using FORCE for land cover/use classification*
 
-This tutorial gives an overview of how to use the FORCE higher-level machine learning submodule to classify tha agricultural land use based on interpolated Sentinel-2 time series. 
+This tutorial gives an overview of how to use the FORCE higher-level machine learning submodule to classify the agricultural land use based on interpolated Sentinel-2 time series. 
 
 .. admonition:: Info
 
@@ -22,18 +22,19 @@ Especially in times of unprecedented availabilitly of free remote sensing data a
 The frequent mapping allows to monitor trends and identify changes in land cover / use that can subsequently be analyzed in the context of ongoing processes and are for example an important prerequisite to assess and evaluate nature conservation policies.
 All supervised classification algorithms follow the same basic principle, where a set of samples – usually pixel which contain several features (e.g. spectra) as predictor and a unique class label (response) - is used to train a classification model that can later be applied to (unknown) pixel. 
 To assess the accuracy of the final classification a set of randomly selected reference samples (where the actual land cover type is known) are compared to the classified map.
-In the current version (3.7.8) FORCE provides two prominent algorithms that are widely used to perform classifications: Random Forests (Breiman, 2001) and Support Vector Machines.
-Random Forest is an ensemble algorithm in which n numbers of individual decision trees are trained and evaluated on a random sample of input data (bagging), from which the majority vote is given as an output along with a certainty layer. The key input parameters of the algorithm are the number of trees, the number of features used at each split and the maximum depth of the individual trees.
-The second algotrithm is the Support Vector Machine (Cortes & Vapnik, 1995) that transforms the input features (with a gaussian function) into a hyperspace in which the classes can be separated by a hyperplane. The width of the gaussian kernel as well as the margin penalization are the input parameters that need to be optimized. The focus of this tutorial is on the classification of crop types within the federal state of Brandenburg, Germany using the random forest algorithm. 
-These are the individual steps that are needed for a classifaction in FORCE (related FORCE modules in parentheses):
-a.	Prepare training samples (currently not implemented in FORCE; feel free to contribute)
-b.	Prepare features (FORCE TSA module :ref:`tsa-param`)
-c.	Extract features at sampling locations (FORCE SAMPLE module)
-d.	Train random forest model (FORCE ML module)
-i.	Optimize parameterization (FORCE magic parameters)
-e.	Apply random forest model (FORCE PRED module)
-f.	Validate final map
-In the following the individual steps will be explained in detail. 
+
+In the current version (3.7.8) FORCE provides two prominent algorithms that are widely used to perform classifications: Random Forests (Breiman, 2001) and Support Vector Machines.Random Forest is an ensemble algorithm in which n numbers of individual decision trees are trained and evaluated on a random sample of input data (bagging), from which the majority vote is given as an output along with a certainty layer. The key input parameters of the algorithm are the number of trees, the number of features used at each split and the maximum depth of the individual trees. The second algotrithm is the Support Vector Machine (Cortes & Vapnik, 1995) that transforms the input features (with a gaussian function) into a hyperspace in which the classes can be separated by a hyperplane. The width of the gaussian kernel as well as the margin penalization are the input parameters that need to be optimized. The focus of this tutorial is on the classification of crop types within the federal state of Brandenburg, Germany using the random forest algorithm. 
+
+These are the individual steps that are needed for a classifaction in FORCE, which will be expalined in the following (related FORCE modules in parentheses):
+
+  a.	Prepare training samples (currently not implemented in FORCE; feel free to contribute)
+  b.	Prepare features (FORCE TSA module :ref:`tsa-param`)
+  c.	Extract features at sampling locations (FORCE SAMPLE module)
+  d.	Train random forest model (FORCE ML module)
+  i.	Optimize parameterization (FORCE magic parameters)
+  e.	Apply random forest model (FORCE PRED module)
+  f.	Validate final map
+
 
 Literature:
 Breiman, L. (2001). Random Forests. Machine Learning, 45, 5–32.
