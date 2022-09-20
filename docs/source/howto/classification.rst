@@ -27,16 +27,17 @@ In the current version (3.7.8) FORCE provides two prominent algorithms that are 
 
 The focus of this tutorial is on the classification of crop types within the federal state of Brandenburg, Germany using the random forest algorithm. These are the individual steps that are needed for a classifaction in FORCE, which will be expalined in the following (related FORCE modules in parentheses):
 
-  a.	Selection of training samples (currently not implemented in FORCE; feel free to contribute)
-  b.	Prepare features (FORCE TSA module :ref:`tsa-param`)
-  c.	Extract features at sampling locations (FORCE SAMPLE module)
-  d.	Train random forest model (FORCE ML module)
-  i.	Optimize parameterization (FORCE magic parameters)
-  e.	Apply random forest model (FORCE PRED module)
-  f.	Validate final map
+  a.  Selection of training samples (currently not implemented in FORCE; feel free to contribute)
+  b.  Prepare features (force-higher-level :ref:`tsa-param`)
+  c.  Extract features at sampling locations (force-higher-level :ref:`tsa-param`)
+  d.	Optimize parameterization (force-magic-parameters :ref:`-param`)
+  e.	Train random forest model (force-train :ref:`-param`)
+  f.  Apply random forest model (force-higher-level :ref:`-param`)
+  g.  Validate final map (force-higher-level :ref:`tsa-param`)
 
 
 Literature:
+
 Breiman, L. (2001). Random Forests. Machine Learning, 45, 5–32.
 Cortes, C., & Vapnik, V. (1995). Support-vector networks. Machine Learning, 20, 273–297.
 
@@ -47,8 +48,11 @@ Cortes, C., & Vapnik, V. (1995). Support-vector networks. Machine Learning, 20, 
 (see `this tutorial on how to use interpolation in FORCE <https://force-eo.readthedocs.io/en/latest/howto/tsi.html#tut-tsi>`_)
 
 
-RBF interpolation
------------------
+Selection of training samples
+-----------------------------
+Your training data set should
+
+
 
 In FORCE, a couple of interpolation methods are implemented.
 
